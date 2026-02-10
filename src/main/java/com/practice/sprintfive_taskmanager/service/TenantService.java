@@ -5,9 +5,11 @@ import com.practice.sprintfive_taskmanager.dto.response.TenantResponse;
 import com.practice.sprintfive_taskmanager.entity.Tenant;
 import com.practice.sprintfive_taskmanager.entity.TenantStatus;
 import com.practice.sprintfive_taskmanager.repository.TenantRepository;
+import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 
+@Service
 public class TenantService extends BaseTenantService{
     private final TenantRepository tenantRepository;
 
