@@ -2,6 +2,7 @@ package com.practice.sprintfive_taskmanager.dto.request;
 
 import com.practice.sprintfive_taskmanager.entity.TaskStatus;
 import com.practice.sprintfive_taskmanager.entity.Tenant;
+import com.practice.sprintfive_taskmanager.entity.User;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
@@ -16,6 +17,9 @@ public class TaskCreateRequest {
 
     @NotNull
     private Tenant tenant;
+
+    @NotNull
+    private User assignedTo;
 
     @NotBlank
     private TaskStatus status;

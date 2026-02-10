@@ -31,6 +31,7 @@ public class TaskService extends BaseTenantService{
         task.setTitle(request.getTitle());
         task.setDescription(request.getDescription());
         task.setTenant(request.getTenant());
+        task.setAssignedTo(request.getAssignedTo());
         task.setStatus(TaskStatus.PENDING);
         task.setCreatedAt(LocalDateTime.now());
 
@@ -53,6 +54,7 @@ public class TaskService extends BaseTenantService{
 
         task.setTitle(request.getTitle());
         task.setDescription(request.getDescription());
+        task.setAssignedTo(request.getAssignedTo());
         task.setStatus(request.getStatus());
         return taskRepository.save(task);
     }
