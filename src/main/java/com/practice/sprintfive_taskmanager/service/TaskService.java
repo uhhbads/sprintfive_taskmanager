@@ -7,6 +7,7 @@ import com.practice.sprintfive_taskmanager.entity.TaskStatus;
 import com.practice.sprintfive_taskmanager.entity.Tenant;
 import com.practice.sprintfive_taskmanager.repository.TaskRepository;
 import com.practice.sprintfive_taskmanager.repository.TenantRepository;
+import jakarta.validation.Valid;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -22,7 +23,7 @@ public class TaskService extends BaseTenantService{
         this.tenantRepository = tenantRepository;
     }
 
-    public Task createTask(TaskCreateRequest request){
+    public Task createTask(@Valid TaskCreateRequest request){
         Long tenantId = getCurrentTenantId();
         Tenant tenant = tenantRepository.findById(tenantId)
                 .orElseThrow(() -> new TenantNotFoundException("Invalid tenant"));
@@ -30,7 +31,7 @@ public class TaskService extends BaseTenantService{
         Task task = new Task();
         task.setTitle(request.getTitle());
         task.setDescription(request.getDescription());
-        task.setTenant(request.getTenant());
+        task.setTenant(tenant);
         task.setAssignedTo(request.getAssignedTo());
         task.setStatus(TaskStatus.PENDING);
         task.setCreatedAt(LocalDateTime.now());
@@ -49,7 +50,7 @@ public class TaskService extends BaseTenantService{
                 .orElseThrow(() -> new TaskNotFoundException("Task not found with id: " + id));
     }
 
-    public Task updateTask(Long id, TaskUpdateRequest request){
+    public Task updateTask(Long id, @Valid TaskUpdateRequest request){
         Task task = getTaskById(id);
 
         task.setTitle(request.getTitle());
