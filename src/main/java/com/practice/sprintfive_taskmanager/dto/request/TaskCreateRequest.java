@@ -17,6 +17,6 @@ public class TaskCreateRequest {
 
     private User assignedTo;
 
-    @NotBlank
+    @NotNull
     private TaskStatus status;
 }
