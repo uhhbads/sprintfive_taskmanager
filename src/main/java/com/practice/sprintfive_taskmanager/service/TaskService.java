@@ -5,6 +5,8 @@ import com.practice.sprintfive_taskmanager.dto.request.TaskUpdateRequest;
 import com.practice.sprintfive_taskmanager.entity.Task;
 import com.practice.sprintfive_taskmanager.entity.TaskStatus;
 import com.practice.sprintfive_taskmanager.entity.Tenant;
+import com.practice.sprintfive_taskmanager.exception.TaskNotFoundException;
+import com.practice.sprintfive_taskmanager.exception.TenantNotFoundException;
 import com.practice.sprintfive_taskmanager.repository.TaskRepository;
 import com.practice.sprintfive_taskmanager.repository.TenantRepository;
 import jakarta.validation.Valid;

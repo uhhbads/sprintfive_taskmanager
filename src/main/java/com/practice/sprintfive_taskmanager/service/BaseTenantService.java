@@ -1,6 +1,8 @@
 package com.practice.sprintfive_taskmanager.service;
 
 import com.practice.sprintfive_taskmanager.config.TenantContext;
+import com.practice.sprintfive_taskmanager.exception.TenantContextException;
+import com.practice.sprintfive_taskmanager.exception.UnauthorizedTenantAccessException;
 
 public abstract class BaseTenantService {
     protected Long getCurrentTenantId() {

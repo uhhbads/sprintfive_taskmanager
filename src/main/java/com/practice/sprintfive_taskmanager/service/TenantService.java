@@ -4,6 +4,8 @@ import com.practice.sprintfive_taskmanager.dto.request.TenantCreateRequest;
 import com.practice.sprintfive_taskmanager.dto.response.TenantResponse;
 import com.practice.sprintfive_taskmanager.entity.Tenant;
 import com.practice.sprintfive_taskmanager.entity.TenantStatus;
+import com.practice.sprintfive_taskmanager.exception.DuplicateTenantKeyException;
+import com.practice.sprintfive_taskmanager.exception.TenantNotFoundException;
 import com.practice.sprintfive_taskmanager.repository.TenantRepository;
 import org.springframework.stereotype.Service;
 
@@ -18,7 +20,7 @@ public class TenantService extends BaseTenantService{
     }
 
     public TenantResponse createTenant(TenantCreateRequest request){
-        Tenant existingTenant = tenantRepository.findByTenantKey(request.getTenantKey())
+        tenantRepository.findByTenantKey(request.getTenantKey())
                 .ifPresent(t -> {
                     throw new DuplicateTenantKeyException("Tenant key already exists: " + request.getTenantKey());
                 });
