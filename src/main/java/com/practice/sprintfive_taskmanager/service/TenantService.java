@@ -44,6 +44,12 @@ public class TenantService extends BaseTenantService{
         return mapToTenantResponse(tenant);
     }
 
+    public TenantResponse getTenantByTenantId(Long id){
+        Tenant tenant = tenantRepository.findById(id)
+                .orElseThrow(() -> new TenantNotFoundException("Tenant not found"));
+        return mapToTenantResponse(tenant);
+    }
+
     public TenantResponse updateTenantStatus(Long id, TenantStatus status){
         Tenant tenant = tenantRepository.findById(id)
                 .orElseThrow(() -> new TenantNotFoundException("Invalid tenant"));
