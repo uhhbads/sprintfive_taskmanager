@@ -11,8 +11,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.time.LocalDateTime;
+
 @RestController
-@RequestMapping("api/users")
+@RequestMapping("/api/users")
 public class UserController {
     private final UserRepository userRepository;
     private final TenantService tenantService;
@@ -35,6 +37,7 @@ public class UserController {
                         request.getTenantKey()
                 )
         );
+        user.setCreatedAt(LocalDateTime.now());
 
         userRepository.save(user);
 

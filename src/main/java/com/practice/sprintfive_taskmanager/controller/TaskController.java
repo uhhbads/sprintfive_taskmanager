@@ -36,7 +36,7 @@ public class TaskController {
         return ResponseEntity.ok(tasks);
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/{taskId}")
     public ResponseEntity<Task> getSpecificTask(
             @RequestHeader("X-Tenant-ID") String tenantKey,
             @PathVariable Long taskId){
@@ -44,7 +44,7 @@ public class TaskController {
         return ResponseEntity.ok(task);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/{taskId}")
     public ResponseEntity<Task> updateSpecificTask(
             @RequestHeader("X-Tenant-ID") String tenantKey,
             @PathVariable Long taskId,
@@ -53,7 +53,7 @@ public class TaskController {
         return ResponseEntity.ok(updatedTask);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/{taskId}")
     public ResponseEntity<Void> deleteSpecificTask(
             @RequestHeader("X-Tenant-ID") String tenantKey,
             @PathVariable Long taskId){
