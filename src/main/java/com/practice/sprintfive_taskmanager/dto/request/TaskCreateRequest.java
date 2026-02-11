@@ -15,7 +15,6 @@ public class TaskCreateRequest {
     @NotBlank
     private String description;
 
-    @NotNull
     private User assignedTo;
 
     @NotBlank
