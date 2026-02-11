@@ -2,6 +2,7 @@ package com.practice.sprintfive_taskmanager.filter;
 
 import com.practice.sprintfive_taskmanager.config.TenantContext;
 import com.practice.sprintfive_taskmanager.entity.Tenant;
+import com.practice.sprintfive_taskmanager.exception.TenantNotFoundException;
 import com.practice.sprintfive_taskmanager.repository.TenantRepository;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
